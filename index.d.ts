@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,18 +16,32 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Perform an in-place copy of elements within a one-dimensional ndarray.
+* Performs an in-place copy of elements within a one-dimensional ndarray.
 *
-* @module @stdlib/blas-ext-base-ndarray-gcopy-within
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a zero-dimensional ndarray specifying a target index.
+*     -   a zero-dimensional ndarray specifying a source start index (inclusive).
+*     -   a zero-dimensional ndarray specifying a source end index (exclusive).
+*     -   a one-dimensional workspace ndarray.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns input ndarray
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
 * var zeros = require( '@stdlib/ndarray-zeros' );
-* var gcopyWithin = require( '@stdlib/blas-ext-base-ndarray-gcopy-within' );
 *
 * var opts = {
 *     'dtype': 'generic'
@@ -42,12 +56,9 @@
 * var out = gcopyWithin( [ x, target, start, end, w ] );
 * // returns <ndarray>[ 1.0, 2.0, 3.0, 2.0, 3.0, 4.0 ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function gcopyWithin<T extends typedndarray<unknown> = typedndarray<unknown>>( arrays: [ T, typedndarray<number>, typedndarray<number>, typedndarray<number>, typedndarray<unknown> ] ): T;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = gcopyWithin;
